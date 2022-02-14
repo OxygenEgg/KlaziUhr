@@ -27,14 +27,39 @@ namespace KlaziUhr
             PreviewKeyDown += new KeyEventHandler(HandleButtonPress);
         }
 
+        private void ToggleFullScreen()
+        {
+            if (WindowState == WindowState.Normal)
+            {
+                WindowState = WindowState.Maximized;
+                WindowStyle = WindowStyle.None;
+                WindowState = WindowState.Normal;
+                WindowState = WindowState.Maximized;
+            }
+            else if (WindowState == WindowState.Maximized)
+            {
+                WindowStyle = WindowStyle.SingleBorderWindow;
+                WindowState = WindowState.Normal;
+            }
+        }
+
+        private void HandleMouseClick(object sender, MouseEventArgs e)
+        {
+            //
+        }
+
         private void HandleButtonPress(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
                 Close();
             }
+            if (e.Key == Key.F)
+            {
+                ToggleFullScreen();
+            }
         }
-
+    /*
         private void TitleBarMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -75,5 +100,6 @@ namespace KlaziUhr
         {
             Close();
         }
+    */
     }
 }

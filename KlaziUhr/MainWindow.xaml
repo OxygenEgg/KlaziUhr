@@ -10,7 +10,8 @@
         Width="1000"
         FontSize="20"
         Foreground="#FFFFFF"
-        Icon="Resources/icon.ico">
+        Icon="Resources/icon.ico"
+        PreviewMouseDown="HandleMouseClick">
 
     <Window.Background>
         <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
@@ -29,9 +30,31 @@
                 <ResourceDictionary Source="Themes/ButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/TitleBarButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Resources/Clocks/Clock001.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+
+            <Image Source="{StaticResource Clock001_ClockFace}" Width="200" Height="200" />
+            <Image Source="{StaticResource Clock001_HourHand}" Width="200" Height="200" />
+            <Image Source="{StaticResource Clock001_MinuteHand}" Width="200" Height="200" />
+            <Image Source="{StaticResource Clock001_SecondHand}" Width="200" Height="200" />
+
+        </StackPanel>
+
+    </Grid>
 <!--
     <Grid>
 
