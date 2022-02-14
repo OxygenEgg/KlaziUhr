@@ -4,9 +4,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.10</ProductVersion>
-    <ProjectGuid>9f23ae97-473e-49a2-ad1a-861f2204bffc</ProjectGuid>
+    <ProjectGuid>e713e4b4-6a4f-4723-8302-ef465a1d056b</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>KlaziUhr-Installer</OutputName>
+    <OutputName>KlaziUhr_Installer</OutputName>
     <OutputType>Package</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -19,45 +19,19 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Components.wxs" />
-    <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Common.wxl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KlaziUhr\KlaziUhr.csproj">
-      <Name>KlaziUhr</Name>
-      <Project>{6ad76417-73d7-4852-b695-61593f37d814}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WixExtension Include="WixUIExtension">
-      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
-      <Name>WixUIExtension</Name>
-    </WixExtension>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="License.rtf" />
-    <Content Include="Resources\Background.bmp" />
-    <Content Include="Resources\banner.bmp" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
   <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
     <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
   </Target>
-
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
 	<Target Name="BeforeBuild">
-		<Exec Command="dotnet publish ..\KlaziUhr\KlaziUhr.csproj -c reee" />
 	</Target>
-
+	<Target Name="AfterBuild">
+	</Target>
+	-->
 </Project>
